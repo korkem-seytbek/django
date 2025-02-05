@@ -5,3 +5,4 @@ urlpatterns = [
     path('movies/', movie_list),
     path('movies/<int:id>/', movie_detail),
 ]
+
