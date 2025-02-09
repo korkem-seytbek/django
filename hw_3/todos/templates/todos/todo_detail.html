@@ -1,0 +1,9 @@
+<h1>{{ todo.title }}</h1>
+<p>{{ todo.description }}</p>
+<p>Due date: {{ todo.due_date }}</p>
+<p>Status: {% if todo.status %}Completed{% else %}Pending{% endif %}</p>
+<a href="{% url 'todo_list' %}">Back to List</a>
+<form action="{% url 'todo_delete' todo.id %}" method="POST">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+</form>
