@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ todo_list.title }}</h1>
+  <p>{{ todo_list.description }}</p>
+
+  <h2>Todos</h2>
+  <ul>
+    {% for todo in todos %}
+      <li>{{ todo.title }} - {{ todo.status }}</li>
+    {% endfor %}
+  </ul>
+
+  <h3>Create Todo</h3>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+
+  <a href="{% url 'delete_todo_list' todo_list.id %}">Delete Todo List</a>
+  <a href="{% url 'edit_todo_list' todo_list.id %}">Edit Todo List</a>
+{% endblock %}
+

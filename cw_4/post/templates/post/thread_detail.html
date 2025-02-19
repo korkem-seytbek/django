@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ thread.name }}</h1>
+<p>{{ thread.description }}</p>
+<h2>Посты</h2>
+<ul>
+    {% for post in posts %}
+    <li>{{ post.title }} - {{ post.author }}</li>
+    {% endfor %}
+</ul>
+<button data-bs-toggle="modal" data-bs-target="#createPostModal">Создать пост</button>
+<!-- Модальное окно -->
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Темы</h1>
+<ul>
+    {% for thread in threads %}
+    <li><a href="{% url 'thread_detail' thread.id %}">{{ thread.name }}</a></li>
+    {% endfor %}
+</ul>
+<button data-bs-toggle="modal" data-bs-target="#createThreadModal">Создать тему</button>
+<!-- Модальное окно -->
+{% endblock %}
