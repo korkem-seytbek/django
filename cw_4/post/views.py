@@ -62,4 +62,3 @@ def post_edit(request, id):
     else:
         form = PostForm(instance=post)
     return render(request, 'post/post_edit.html', {'form': form})
-
