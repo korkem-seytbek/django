@@ -1,0 +1,13 @@
+{% extends "todos/base.html" %}
+
+{% block title %}Todo Details{% endblock %}
+
+{% block content %}
+    <h2>{{ todo.title }}</h2>
+    <p><strong>Description:</strong> {{ todo.description }}</p>
+    <p><strong>Due Date:</strong> {{ todo.due_date }}</p>
+    <p><strong>Status:</strong> {% if todo.status %}✅ Completed {% else %}❌ Not Completed {% endif %}</p>
+
+    <a href="{% url 'todo_list' %}" class="btn btn-secondary">Back to list</a>
+    <a href="{% url 'todo_delete' todo.id %}" class="btn btn-danger">Delete</a>
+{% endblock %}
