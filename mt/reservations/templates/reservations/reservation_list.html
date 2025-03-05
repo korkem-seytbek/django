@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Список бронирований</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Дата</th>
+        <th>Пользователь</th>
+        <th>Действия</th>
+    </tr>
+    {% for reservation in reservations %}
+    <tr>
+        <td>{{ reservation.id }}</td>
+        <td>{{ reservation.name }}</td>
+        <td>{{ reservation.date }}</td>
+        <td>{{ reservation.user.username }}</td>
+        <td>
+            <a href="{% url 'reservation_detail' reservation.id %}">Просмотр</a> |
+            <a href="{% url 'reservation_edit' reservation.id %}">Редактировать</a> |
+            <a href="{% url 'reservation_confirm_delete' reservation.id %}">Удалить</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="{% url 'reservation_create' %}">Добавить бронирование</a>
+{% endblock %}

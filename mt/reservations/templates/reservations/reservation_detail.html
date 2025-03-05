@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Детали бронирования</h2>
+<p><strong>Имя:</strong> {{ reservation.name }}</p>
+<p><strong>Дата:</strong> {{ reservation.date }}</p>
+<p><strong>Пользователь:</strong> {{ reservation.user.username }}</p>
+
+<a href="{% url 'reservation_edit' reservation.id %}">Редактировать</a> |
+<a href="{% url 'reservation_confirm_delete' reservation.id %}">Удалить</a> |
+<a href="{% url 'reservation_list' %}">Назад</a>
+{% endblock %}

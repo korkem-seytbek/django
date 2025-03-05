@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block content %}
+<h2>Доступные столики</h2>
+
+{% if tables %}
+<ul>
+    {% for table in tables %}
+    <li>
+        Столик №{{ table.number }} ({{ table.seats }} мест)
+        <a href="{% url 'table_detail' table.pk %}">Детали</a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Нет доступных столиков.</p>
+{% endif %}
+
+<a href="{% url 'table_list' %}">Назад к списку столиков</a> {% endblock %}

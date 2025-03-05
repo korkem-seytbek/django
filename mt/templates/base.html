@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система бронирования</title>
+
+    <!-- Подключение Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <!-- Подключение пользовательских стилей -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+    {% include "header.html" %}
+
+    <div class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="container text-center mt-5">
+        <h1>Добро пожаловать в систему бронирования!</h1>
+        <p>Вы можете управлять пользователями, столиками и бронированием.</p>
+        <a href="{% url 'customer_list' %}" class="btn btn-primary">Список клиентов</a>
+        <a href="{% url 'reservation_list' %}" class="btn btn-success">Список броней</a>
+    </div>
+
+    <!-- Подключение Bootstrap JS -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

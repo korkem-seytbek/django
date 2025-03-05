@@ -1,0 +1,9 @@
+{% extends "base.html" %} {% block content %}
+<h2>{% if form.instance.pk %}Редактировать{% else %}Добавить новый{% endif %} столик</h2>
+
+<form method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+
+<a href="{% url 'table_list' %}">Назад</a> {% endblock %}
